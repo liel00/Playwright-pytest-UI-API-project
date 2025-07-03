@@ -1,0 +1,2 @@
+[DEBUG] Room created with name: Test RoomFamilytrue100WiFi, TV, Radio, Refreshments, Safe, Views
+[DEBUG] Room locator: <Locator frame=<Frame name= url='https://automationintesting.online/admin/rooms'> selector='div[data-testid=\'roomlisting\'] >> internal:has-text="Test RoomFamilytrue100WiFi, TV, Radio, Refreshments, Safe, Views"i >> nth=0'>
