@@ -33,7 +33,6 @@ Playwright-restful-booker-project/
 │   └── utils/               # Base page and utilities
 │
 ├── reports/                 # Allure report output
-├── conftest.py              # Global fixtures
 ├── requirements.txt         # Python dependencies
 ├── pytest.ini               # Markers & config
 └── README.md                # Project documentation
