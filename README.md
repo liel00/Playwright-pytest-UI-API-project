@@ -1,49 +1,82 @@
-# Playwright UI & API Restful Booker Project
+# 🧪 Playwright + Pytest Automation Project (UI & API)
 
-A comprehensive test automation framework for UI and API testing using **Playwright** and **Pytest**.
+This project is a complete automation testing framework using:
 
-## 🚀 Installation
+- ✅ **Playwright** for Web UI testing
+- ✅ **Requests + Pytest** for API testing
+- ✅ **Allure** for rich HTML test reports
 
-To set up the project and install dependencies:
+It includes modular structure, markers for test categorization, and parallel test execution.
 
-```bash
-git clone https://github.com/yourusername/playwright-ui-api-restful-booker-project.git
-cd playwright-ui-api-restful-booker-project
-pip install -r requirements.txt
-playwright install
+---
+
+## 🌐 Tested Websites
+
+- **UI Testing**: [https://automationintesting.online](https://automationintesting.online)
+- **API Testing**: [https://restful-booker.herokuapp.com/apidoc/index.html](https://restful-booker.herokuapp.com/apidoc/index.html)
+
+---
+
+## 📁 Project Structure
+
+```
+Playwright-restful-booker-project/
+│
+├── api_tests/               # API automation
+│   ├── core/                # API request logic (CRUD)
+│   ├── data/                # Request payloads and test data
+│   └── tests/               # API test cases
+│
+├── gui_tests/               # Web UI automation
+│   ├── pages/               # Page Object Model (POM)
+│   ├── test/                # UI test cases
+│   └── utils/               # Base page and utilities
+│
+├── reports/                 # Allure report output
+├── conftest.py              # Global fixtures
+├── requirements.txt         # Python dependencies
+├── pytest.ini               # Markers & config
+└── README.md                # Project documentation
 ```
 
-## 🧪 Usage
+---
 
-1. Open the project in PyCharm or any other IDE
-2. Run all tests:
+## 🚀 Getting Started
+
+### 1. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 2. Run All Tests
+
 ```bash
 pytest
 ```
-3. Run tests with specific browser:
-```bash
-pytest --browser=firefox
-pytest --browser=webkit
-pytest --browser=chromium
-```
-4. Run tests by markers:
+
+### 3. Run Tests by Marker
+
 ```bash
 pytest -m sanity
 pytest -m API
+pytest -m regression
 ```
-5. Generate Allure reports:
+
+### 4. Run Tests in Parallel (Example: 2 workers)
+
 ```bash
-allure serve allure-results
+pytest -m sanity -n 2
 ```
 
-## ⚙️ Configuration
+---
 
-The project includes a `pytest.ini` configuration file with the following settings:
+## 🧪 Markers
+
+Custom markers are defined in `pytest.ini`:
 
 ```ini
 [pytest]
-addopts = -v --headed --video=retain-on-failure --alluredir=reports/allure/ ./tests
-
 markers =
     sanity: run test suite of sanity
     regression: run test suite of regression
@@ -52,52 +85,42 @@ markers =
     API: run test suite of API
 ```
 
-### Supported Browsers
-- **Chromium** (default)
-- **Firefox**
-- **WebKit** (Safari)
+Use them like:
 
-## 📁 Project structure
-
-```
-playwright-ui-api-restful-booker-project/
-├── tests/
-│   ├── api/
-│   │   ├── helpers/
-│   │   │   └── booking_requests.py
-│   │   ├── test_create_booking_update_delete.py
-│   │   ├── conftest.py
-│   │   └── base.py
-│   ├── ui/
-│   │   ├── pages/
-│   │   │   └── Edit_page.py
-│   │   └── BasePage.py
-├── data/
-│   └── api_data.py
-├── reports/
-│   └── allure/
-├── requirements.txt
-├── pytest.ini
-└── README.md
+```bash
+pytest -m critical
 ```
 
-#
+---
+
 ## 📊 Allure Reports
 
-Allure allows you to generate beautiful and detailed test reports.
+### Generate Report
 
-### Installation
 ```bash
-pip install allure-pytest
+pytest --alluredir=reports/allure
 ```
 
-### To see the Allure report at the end of the tests run:
-```bash
+### View Report
 
-allure serve reports/allure/
+```bash
+allure serve reports/allure
 ```
 
-## 🐞 Known Issues
-- Some UI elements may not render correctly depending on the browser version
-- API tests may fail if the backend server is unavailable. Check network connectivity and server status
-- Video recording is enabled by default and retained only on test failures
+---
+
+## 🧰 Tech Stack
+
+- **Python 3.11**
+- **Playwright**
+- **Pytest**
+- **Requests**
+- **Allure**
+
+---
+
+## 📌 Notes
+
+- You can combine markers and run them in parallel to optimize execution time.
+- The project follows **Page Object Model (POM)** for UI tests.
+- Test data is separated for better maintainability.
