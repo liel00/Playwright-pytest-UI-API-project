@@ -1,13 +1,14 @@
 import allure
 import pytest
 
-from api_tests.data.booking_data import post_booking_data, get_booking_data, put_updated_data, delete_data
+from api_tests.data.booking_data import post_booking_data, get_booking_data, put_updated_data, delete_data, \
+    partial_data, patch_data
 from api_tests.core.booking_requests import (
     create_booking_request,
     get_booking_request,
     update_booking_request,
     delete_booking_request,
-    get_deleted_booking_request
+    get_deleted_booking_request, partial_update_booking
 )
 
 
@@ -44,3 +45,11 @@ class TestBooking:
         booking_id, _ = create_booking_request(delete_data)
         delete_booking_request(booking_id, get_token)
         get_deleted_booking_request(booking_id)
+
+    @pytest.mark.API
+    def test_partial_update_booking(self, get_token):
+        booking_id, _ = create_booking_request(patch_data)
+        patch = partial_update_booking(booking_id, partial_data, get_token)
+        assert patch["firstname"] == partial_data["firstname"]
+        assert patch["lastname"] == partial_data["lastname"]
+        assert patch["totalprice"] == partial_data["totalprice"]

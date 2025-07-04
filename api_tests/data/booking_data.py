@@ -45,3 +45,23 @@ delete_data = {
     },
     "additionalneeds": "Lunch"
 }
+
+partial_data = {
+    "firstname": "PartialTest",
+    "lastname": "PartialUpdate",
+    "totalprice": 999,
+
+}
+
+patch_data = {
+    "firstname": "del",
+    "lastname": "delad",
+    "totalprice": 234,
+    "depositpaid": True,
+    "bookingdates": {
+        "checkin": "2031-01-01",
+        "checkout": "2032-01-10"
+    },
+    "additionalneeds": "Lunch"
+}
+

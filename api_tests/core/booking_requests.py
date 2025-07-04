@@ -62,3 +62,17 @@ def get_deleted_booking_request(booking_id):
     headers = {"Accept": "application/json"}
     response = requests.get(url, headers=headers)
     assert response.status_code == 404, f"Booking still exists: {response.status_code} - {response.text}"
+
+
+def partial_update_booking(booking_id, partial_data, token):
+    url = f"{BASE_URL}/booking/{booking_id}"
+    headers = {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "Cookie": f"token={token}"
+    }
+    response = requests.patch(url, json=partial_data, headers=headers)
+    assert response.status_code == 200, f"Failed to partially update booking: {response.status_code} - {response.text}"
+
+    return response.json()
+
