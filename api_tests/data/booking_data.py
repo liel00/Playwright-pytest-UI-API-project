@@ -54,13 +54,13 @@ partial_data = {
 }
 
 patch_data = {
-    "firstname": "del",
-    "lastname": "delad",
-    "totalprice": 234,
+    "firstname": "lol",
+    "lastname": "adw",
+    "totalprice": 888,
     "depositpaid": True,
     "bookingdates": {
-        "checkin": "2031-01-01",
-        "checkout": "2032-01-10"
+        "checkin": "2032-01-01",
+        "checkout": "2034-01-10"
     },
     "additionalneeds": "Lunch"
 }
