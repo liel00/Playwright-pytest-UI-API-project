@@ -34,6 +34,7 @@ def viewport_size(request):
     }
 
 
+# This fixture sets up the page with the specified viewport size,
 @pytest.fixture(scope="function")
 def set_up_tear_down(page: Page, viewport_size) -> Page:
     try:

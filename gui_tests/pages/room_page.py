@@ -22,9 +22,11 @@ class RoomPage(BasePage):
         self.check_room = page.locator("div[data-testid='roomlisting']", has_text="Test Room").first
         self.edit_button = self.page.locator("button", has_text="Edit")
 
+    # This method returns the first room listing element that matches the given room name
     def get_room_by_name(self, room_name):
         return self.page.locator("div[data-testid='roomlisting']", has_text=room_name).first
 
+    # This method builds a new room with the provided parameters and verifies its creation
     def build_new_room_and_verify(
             self,
             room_name="Test Room",
@@ -97,14 +99,15 @@ class RoomPage(BasePage):
         print(f"[DEBUG] Room locator: {room}")
         expect(room).to_be_visible()
 
+    # This method deletes a room by its name and verifies it is no longer visible
     def delete_room_and_verify(self, room_name: str):
         room = self.get_room_by_name(room_name)
         delete_button = room.locator("span.fa-remove")
         self.safe_click(delete_button)
         expect(room).not_to_be_visible()
 
+    # This method clicks the edit button for a specific room
     def click_edit_room(self, room_name):
         room = self.get_room_by_name(room_name)
         self.safe_click(room)
         self.safe_click(self.edit_button)
-

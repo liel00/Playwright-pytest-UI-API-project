@@ -19,22 +19,24 @@ class EditRoomPage(BasePage):
         self.update_button = page.locator('#update')
         self.rooms_button = page.locator("a.nav-link", has_text="Rooms")
 
+    # This method returns the first room listing element that matches the given room name
     def get_room_by_name(self, room_name):
         return self.page.locator("div[data-testid='roomlisting']", has_text=room_name).first
 
+    # This method edits an existing room with the provided parameters
     def edit_room(
-        self,
-        room_name="Edited Room",
-        type_value="Double",
-        accessible_value="false",
-        room_price="200",
-        expected_name=None,
-        wifi=False,
-        tv=False,
-        radio=False,
-        refresh=False,
-        safe=False,
-        views=False
+            self,
+            room_name="Edited Room",
+            type_value="Double",
+            accessible_value="false",
+            room_price="200",
+            expected_name=None,
+            wifi=False,
+            tv=False,
+            radio=False,
+            refresh=False,
+            safe=False,
+            views=False
     ):
         try:
             self.safe_fill(self.room_name_input_in_edit, room_name)

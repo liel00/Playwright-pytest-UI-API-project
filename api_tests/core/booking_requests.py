@@ -8,6 +8,7 @@ BASE_URL = os.getenv("BASE_URL_API")
 
 
 def create_booking_request(data):
+    # Sends a POST request to create a new booking and returns its ID and full response.
     url = f"{BASE_URL}/booking"
     headers = {"Content-Type": "application/json"}
 
@@ -21,6 +22,7 @@ def create_booking_request(data):
 
 
 def get_booking_request(booking_id):
+    # Sends a GET request to retrieve booking details by booking ID.
     url = f"{BASE_URL}/booking/{booking_id}"
     headers = {"Accept": "application/json"}
 
@@ -32,6 +34,7 @@ def get_booking_request(booking_id):
 
 
 def update_booking_request(booking_id, updated_data, token):
+    # Sends a PUT request to update an existing booking using a token for authentication.
     url = f"{BASE_URL}/booking/{booking_id}"
     headers = {
         "Content-Type": "application/json",
@@ -45,6 +48,7 @@ def update_booking_request(booking_id, updated_data, token):
 
 
 def delete_booking_request(booking_id, token):
+    # Sends a DELETE request to remove a booking using a token for authentication.
     url = f"{BASE_URL}/booking/{booking_id}"
     headers = {
         "Content-Type": "application/json",
@@ -57,7 +61,7 @@ def delete_booking_request(booking_id, token):
 
 
 def get_deleted_booking_request(booking_id):
-    """Helper for testing deleted bookings"""
+    # Verifies that a previously deleted booking returns 404 (not found).
     url = f"{BASE_URL}/booking/{booking_id}"
     headers = {"Accept": "application/json"}
     response = requests.get(url, headers=headers)
@@ -65,6 +69,7 @@ def get_deleted_booking_request(booking_id):
 
 
 def partial_update_booking(booking_id, partial_data, token):
+    # Sends a PATCH request to partially update booking fields using a token for authentication.
     url = f"{BASE_URL}/booking/{booking_id}"
     headers = {
         "Content-Type": "application/json",

@@ -9,6 +9,7 @@ USERNAME = os.getenv("API_USERNAME")
 PASSWORD = os.getenv("API_PASSWORD")
 
 
+# This pytest hook allows you to add custom command-line options (flags)
 @pytest.fixture(scope="session", autouse=True)
 def check_server_alive():
     try:
@@ -19,6 +20,7 @@ def check_server_alive():
         pytest.fail(f"Could not connect to server at {BASE_URL}: {e}")
 
 
+# This fixture retrieves the token for authentication
 @pytest.fixture(scope="session")
 def get_token():
     url = f"{BASE_URL}/auth"

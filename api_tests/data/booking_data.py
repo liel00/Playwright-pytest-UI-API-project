@@ -10,6 +10,7 @@ post_booking_data = {
     },
     "additionalneeds": "Breakfast"
 }
+# get order
 get_booking_data = {
     "firstname": "get_test",
     "lastname": "get",
@@ -33,7 +34,7 @@ put_updated_data = {
     },
     "additionalneeds": "Lunch"
 }
-
+# delete order
 delete_data = {
     "firstname": "del",
     "lastname": "delad",
@@ -45,14 +46,14 @@ delete_data = {
     },
     "additionalneeds": "Lunch"
 }
-
+# Partial update data
 partial_data = {
     "firstname": "PartialTest",
     "lastname": "PartialUpdate",
     "totalprice": 999,
 
 }
-
+# # Partial update of an existing booking
 patch_data = {
     "firstname": "lol",
     "lastname": "adw",

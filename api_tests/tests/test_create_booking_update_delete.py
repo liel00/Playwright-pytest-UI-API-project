@@ -46,6 +46,7 @@ class TestBooking:
         delete_booking_request(booking_id, get_token)
         get_deleted_booking_request(booking_id)
 
+    @allure.title("Partial update of a booking")
     @pytest.mark.API
     def test_partial_update_booking(self, get_token):
         booking_id, _ = create_booking_request(patch_data)

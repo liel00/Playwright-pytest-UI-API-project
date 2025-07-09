@@ -8,6 +8,7 @@ class LoginPage(BasePage):
         self.password_input = page.locator('#password')
         self.login_button = page.locator('#doLogin')
 
+    # This method logs in using the provided username and password
     def login(self, username="admin", password="password"):
         self.safe_fill(self.username_input, username)
         self.safe_fill(self.password_input, password)
